@@ -1,0 +1,30 @@
+package org.example.mainFrame.pages;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.function.Consumer;
+
+public class LogIn extends JPanel {
+    public LogIn(Consumer<String> onClick){
+        this.setBackground(new Color(0x100D0D));
+        add(createButton("Login", onClick));
+        add(createButton("SignUp", onClick));
+    }
+
+    public JButton createButton(String text, Consumer<String> onClick){
+        JButton button = new JButton(text);
+        button.setBackground(Color.RED);
+        button.setPreferredSize(new Dimension(200,44));
+        button.setMinimumSize(new Dimension(100,22));
+        button.setMaximumSize(new Dimension(400,88));
+        button.addActionListener(e ->{
+            onClick.accept("Launch");
+        });
+
+        return button;
+    }
+
+
+
+
+}
